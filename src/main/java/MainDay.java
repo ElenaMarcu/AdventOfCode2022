@@ -3,8 +3,6 @@ package main.java;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * <p>This is the main class for the solutions for Advent of code 2022
@@ -14,8 +12,6 @@ public class MainDay {
 
   protected static Logger logger;
   protected static List<String> lines;
-  protected static Pattern pattern;
-  protected static Matcher matcher;
 
   /**
    * Main method where the day/days for which we are running are mentioned in args
