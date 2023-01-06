@@ -16,7 +16,7 @@ public class Day4 extends MainDay {
   }
 
   @Override
-  public long part1() {
+  public Long part1() {
     long pairs = 0;
     for (String line : lines) {
       matcher = pattern.matcher(line);
@@ -35,7 +35,7 @@ public class Day4 extends MainDay {
   }
 
   @Override
-  public long part2() {
+  public Long part2() {
     long pairs = 0;
     for (String line : lines) {
       matcher = pattern.matcher(line);

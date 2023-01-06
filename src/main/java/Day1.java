@@ -1,27 +1,42 @@
 package main.java;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.logging.Logger;
 
 public class Day1 extends MainDay {
 
-  private final long[] myStack = {0, 0, 0};
+  private final Deque<Long> myStack;
 
   public Day1(String fileName) {
     lines = UtilClass.readLines(fileName);
     logger = Logger.getLogger(Day1.class.getName());
+    myStack = new ArrayDeque<>();
+    myStack.addAll(Arrays.asList(0L, 0L, 0L));
   }
 
   private void verifyIsTopThree(long currentNoOfCalories) {
-    if (currentNoOfCalories >= myStack[0]) {
-      addFirst(currentNoOfCalories);
-    } else if (currentNoOfCalories > myStack[2]) {
-      addLast(currentNoOfCalories);
+    long first = myStack.peekFirst() == null ? 0 : myStack.getFirst();
+    long last = myStack.peekLast() == null ? 0 : myStack.getLast();
+    if (currentNoOfCalories >= first) {
+      myStack.addFirst(currentNoOfCalories);
+      myStack.removeLast();
+    } else if (currentNoOfCalories > last) {
+      myStack.removeLast();
+      last = myStack.peekLast() == null ? 0 : myStack.getLast();
+      if (currentNoOfCalories > last) {
+        long temp = myStack.removeLast();
+        myStack.addLast(currentNoOfCalories);
+        myStack.addLast(temp);
+      } else {
+        myStack.addLast(currentNoOfCalories);
+      }
     }
   }
 
   @Override
-  public long part1() {
+  public Long part1() {
     long maxNoOfCalories = 0;
     long currentNoOfCalories = 0;
     for (String line : lines) {
@@ -39,7 +54,7 @@ public class Day1 extends MainDay {
   }
 
   @Override
-  public long part2() {
+  public Long part2() {
     long currentNoOfCalories = 0;
     for (String line : lines
     ) {
@@ -52,21 +67,7 @@ public class Day1 extends MainDay {
       }
     }
     verifyIsTopThree(currentNoOfCalories);
-    return Arrays.stream(myStack).sum();
+    return myStack.stream().reduce(0L, Long::sum);
   }
 
-  private void addFirst(long value) {
-    myStack[2] = myStack[1];
-    myStack[1] = myStack[0];
-    myStack[0] = value;
-  }
-
-  private void addLast(long value) {
-    if (value > myStack[1]) {
-      myStack[2] = myStack[1];
-      myStack[1] = value;
-    } else {
-      myStack[2] = value;
-    }
-  }
 }

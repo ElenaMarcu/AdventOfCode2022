@@ -19,7 +19,7 @@ public class Day3 extends MainDay {
   }
 
   @Override
-  public long part1() {
+  public Long part1() {
     long sum = 0;
     for (String line : lines) {
       String part1 = (String) line.subSequence(0, line.length() / 2);
@@ -33,8 +33,8 @@ public class Day3 extends MainDay {
   }
 
   @Override
-  public long part2() {
-    int sum = 0;
+  public Long part2() {
+    long sum = 0;
     Set<Character> charP1;
     Set<Character> charP2;
     Set<Character> charP3;

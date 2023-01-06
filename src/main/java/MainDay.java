@@ -4,18 +4,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * <p>This is the main class for the solutions for Advent of code 2022
- * <a href="https://adventofcode.com/2022">Advent of code 2022!</a> </p>
- */
-public class MainDay {
+public abstract class MainDay {
 
   protected static Logger logger;
   protected static List<String> lines;
 
-  /**
-   * Main method where the day/days for which we are running are mentioned in args
-   */
   public static void main(String[] args) {
     for (String arg : args) {
       String fileName = "src/main/resources/inputDay" + arg + ".txt";
@@ -38,11 +31,8 @@ public class MainDay {
     }
   }
 
-  public long part1() {
-    return 0;
-  }
+  public abstract Object part1();
 
-  public long part2() {
-    return 0;
-  }
+  public abstract Object part2();
+
 }
