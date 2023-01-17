@@ -3,10 +3,7 @@ package test.java;
 import static org.junit.Assert.assertEquals;
 
 import java.util.logging.Logger;
-import java.util.regex.Pattern;
-import main.java.Day5;
 import main.java.Day6;
-import main.java.UtilClass;
 import org.junit.Test;
 
 public class TestDay6 extends MainTestClass {
