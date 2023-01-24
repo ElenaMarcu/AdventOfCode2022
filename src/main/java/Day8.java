@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 public class Day8 extends MainDay {
+
   private final List<Map<Integer, Integer>> noFromCols;
   private final List<Map<Integer, Integer>> noFromLines;
   private final Integer[] maxFromCols;
@@ -79,23 +80,24 @@ public class Day8 extends MainDay {
     return noOfTrees;
   }
 
-  private boolean isVisible(int currentTree, Map<Integer, Integer> integerIntegerMap) {
-    if (integerIntegerMap.get(currentTree) > 1) {
+  private boolean isVisible(int currentTree, Map<Integer, Integer> presenceMap) {
+    if (presenceMap.get(currentTree) > 1) {
       return false;
     }
+
     for (int i = currentTree + 1; i < 10; i++) {
-      if (integerIntegerMap.containsKey(i)) {
+      if (presenceMap.containsKey(i)) {
         return false;
       }
     }
     return true;
   }
 
-  private void updateMap(int currentTree, Map<Integer, Integer> integerIntegerMap) {
-    if (integerIntegerMap.get(currentTree) == 1) {
-      integerIntegerMap.remove(currentTree);
+  private void updateMap(int currentTree, Map<Integer, Integer> presenceMap) {
+    if (presenceMap.get(currentTree) == 1) {
+      presenceMap.remove(currentTree);
     }
-    integerIntegerMap.computeIfPresent(currentTree, (k, x) -> x = x - 1);
+    presenceMap.computeIfPresent(currentTree, (k, x) -> x = x - 1);
   }
 
 
