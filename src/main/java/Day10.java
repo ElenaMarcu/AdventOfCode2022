@@ -22,7 +22,7 @@ public class Day10 extends MainDay {
       if ("noop".equals(line)) {
         basicInstruction();
       } else {
-        int v = Integer.parseInt((line.split(" "))[1]);
+        int v = Integer.parseInt((line.split("\\s+"))[1]);
         executeAddxInstruction(v);
       }
     }
@@ -57,7 +57,7 @@ public class Day10 extends MainDay {
       if ("noop".equals(line)) {
         updateCrt();
       } else {
-        int v = Integer.parseInt((line.split(" "))[1]);
+        int v = Integer.parseInt((line.split("\\s+"))[1]);
         updateCrt();
         updateCrt();
         x += v;

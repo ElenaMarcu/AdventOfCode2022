@@ -30,7 +30,7 @@ public class Day9 extends MainDay {
   private void startMotion(int size) {
     initVars(size);
     for (String line : lines) {
-      String[] values = line.split(" ");
+      String[] values = line.split("\\s+");
       Direction direction = getDirection(values[0]);
       int steps = Integer.parseInt(values[1]);
       moveKnots(direction, steps);

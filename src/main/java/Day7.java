@@ -53,7 +53,7 @@ public class Day7 extends MainDay {
         break;
     }
 
-    String[] ch = line.split(" ");
+    String[] ch = line.split("\\s+");
     if (line.startsWith("$")) {
       currentNode = currentNode.getNodeByData(currentNode, new NodeRepresentation(ch[2]));
     } else {
