@@ -17,18 +17,19 @@ public class Day9 extends MainDay {
 
   @Override
   public Integer part1() {
-    startMotion(2);
+    initVars(2);
+    startMotion();
     return visitedPositions.size();
   }
 
   @Override
   public Integer part2() {
-    startMotion(10);
+    initVars(10);
+    startMotion();
     return visitedPositions.size();
   }
 
-  private void startMotion(int size) {
-    initVars(size);
+  private void startMotion() {
     for (String line : lines) {
       String[] values = line.split("\\s+");
       Direction direction = getDirection(values[0]);
